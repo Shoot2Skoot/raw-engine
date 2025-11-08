@@ -1,0 +1,25 @@
+// examples/01-simple-grid.ts
+
+import { SheetBuilder } from '../builders/SheetBuilder';
+
+export const yahtzeeSheet = SheetBuilder.create('yahtzee')
+  .name('Yahtzee Score Sheet')
+  .size(400, 700)
+  .backgroundColor('#F5F5F5')
+  .addGridRegion(
+    'upper-section',
+    6,  // rows (Ones, Twos, Threes, Fours, Fives, Sixes)
+    1,  // cols
+    80, // cell size
+    { x: 50, y: 100 },
+    ['number']
+  )
+  .addGridRegion(
+    'lower-section',
+    7,  // rows (3 of kind, 4 of kind, Full House, Small Straight, Large Straight, Yahtzee, Chance)
+    1,  // cols
+    80, // cell size
+    { x: 50, y: 600 },
+    ['number']
+  )
+  .build();
